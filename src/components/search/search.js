@@ -4,7 +4,7 @@ import {GithubContext} from "../../context/github/githubContext";
 
 const Search = () => {
     const [value, setValue] = useState('');
-    const {show} = useContext(AlertContext);
+    const {show, hide} = useContext(AlertContext);
     const github = useContext(GithubContext);
 
     const onSubmit = (event) => {
@@ -15,8 +15,10 @@ const Search = () => {
         if (value.trim()) {
             console.log('Make request with: ' + value);
             github.search(value.trim());
+            hide();
         } else {
-            show("Введите данные пользователя!");
+            github.clearUsers();
+            show("Введите имя пользователя");
         }
     };
 
