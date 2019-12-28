@@ -13,7 +13,7 @@ function App() {
         <>
             <GithubState>
                 <AlertState>
-                    <BrowserRouter>
+                    <BrowserRouter basename={process.env.PUBLIC_URL}>
                         <Navbar/>
                         <div className="container pt-4">
                             <Alert alert={{text: 'Test alert'}}/>
