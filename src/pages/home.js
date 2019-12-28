@@ -6,11 +6,9 @@ const Home = () => {
     const cards = new Array(15)
         .fill('')
         .map((_, i) => i);
-    console.log(cards);
 
     return (
         <>
-            <div>Home Page</div>
             <Search/>
             <div className="row">
                 {cards.map(card => {
