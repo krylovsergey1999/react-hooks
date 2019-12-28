@@ -1,6 +1,7 @@
 import React, {Fragment, useContext, useEffect} from "react"
 import {Link} from 'react-router-dom';
 import {GithubContext} from "../context/github/githubContext";
+import Repos from "../components/repos";
 
 const Profile = ({match}) => {
     console.log(match);
@@ -78,7 +79,7 @@ const Profile = ({match}) => {
                 </div>
             </div>
 
-            {repos.join()}
+            <Repos repos={repos}/>
         </Fragment>
     )
 };
