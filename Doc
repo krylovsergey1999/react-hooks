@@ -2,3 +2,4 @@
 2) npm i bootstrap
 3) yarn add node-sass
 4) yarn add react-router-dom
+5) yarn add axios

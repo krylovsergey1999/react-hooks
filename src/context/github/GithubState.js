@@ -1,8 +1,11 @@
 import React, {useReducer} from "react";
 import {GithubContext} from './githubContext';
-import {alertReducer} from "../alert/alertReducer";
 import {githubReducer} from "./GithubReducer";
+import axios from 'axios';
 import {CLEAR_USERS, GET_REPOS, GET_USER, SEARCH_USERS, SET_LOADING} from "../types";
+
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 
 const GithubState = ({children}) => {
     const initialState = {
@@ -15,11 +18,15 @@ const GithubState = ({children}) => {
     const [state, dispatch] = useReducer(githubReducer, initialState);
 
     const search = async value => {
-        // тут запрос на сервер
         setLoading();
+
+        const response = await axios.get(
+            `https://api.github.com/search/users?q=${value}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`
+        );
+
         dispatch({
            type: SEARCH_USERS,
-           payload: []
+           payload: response.data.items
         });
     };
 
