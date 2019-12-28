@@ -1,9 +1,9 @@
 import React from 'react';
-import Navbar from "./navbar/navbar";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Home from "./pages/home";
 import About from "./pages/about";
 import Profile from "./pages/profile";
+import Navbar from "./components/navbar";
 
 function App() {
     return (
